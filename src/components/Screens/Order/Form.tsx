@@ -21,9 +21,9 @@ const OrderScreen = memo((props: IUseNavigation) => {
 
   const [model, setModelProp] = useModel<IOrder>();
 
-  const [description, setDescription] = useState<string>('');
-  const [quantity, setQuantity] = useState<number>(0);
-  const [value, setValue] = useState<number>(0);
+  const [description, setDescription] = useState('');
+  const [quantity, setQuantity] = useState(0);
+  const [value, setValue] = useState(0);
 
   function handleSave() {
     onSave();
@@ -65,7 +65,7 @@ const OrderScreen = memo((props: IUseNavigation) => {
   }, []);
 
   return (
-    <Container style={styles.orderContainer}>
+    <Container>
       <Content padder keyboardShouldPersistTaps='handled'>
         <Form>
           <ValidationContext ref={validationRef}>
@@ -76,7 +76,6 @@ const OrderScreen = memo((props: IUseNavigation) => {
                 value={description}
                 flowIndex={0}
                 onChange={value => setDescription(value)}
-                style={styles.field}
               />
 
               <FieldText
@@ -84,7 +83,6 @@ const OrderScreen = memo((props: IUseNavigation) => {
                 value={quantity}
                 flowIndex={2}
                 onChange={value => setQuantity(value)}
-                style={styles.field}
               />
 
               <FieldText
@@ -92,7 +90,6 @@ const OrderScreen = memo((props: IUseNavigation) => {
                 value={value}
                 flowIndex={3}
                 onChange={value => setValue(value)}
-                style={styles.field}
               />
             </List>
           </ValidationContext>
