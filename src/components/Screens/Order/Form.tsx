@@ -41,8 +41,8 @@ const OrderScreen = memo((props: IUseNavigation) => {
         orderService
           .save({
             description,
-            quantity,
-            value
+            quantity: parseInt(quantity),
+            value: parseFloat(value)
           } as IOrder)
           .pipe(loader())
       ),
