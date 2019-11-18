@@ -1,0 +1,9 @@
+lane :release do
+  sh("(cd ../../ && node ./scripts/change-version.js -f)")
+  cocoapods
+  
+  get_provisioning_profile   
+
+  build_app(scheme: "reactAppRelease", workspace: "reactApp.xcworkspace", include_bitcode: true, silent: true)
+  upload_to_testflight
+end
